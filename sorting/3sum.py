@@ -1,36 +1,38 @@
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
-        ans = set()
+        ans = []
 
-        for i in range(len(nums)):
-            j = 0
+        for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+
+            if nums[i] > 0:
+                break
+
+            j = i + 1
             k = len(nums) - 1
 
             while j < k:
-                if i == j:
+                total = nums[i] + nums[j] + nums[k]
+
+                if total == 0:
+                    ans.append([nums[i], nums[j], nums[k]])
+
                     j += 1
-                    continue
-
-                if i == k:
                     k -= 1
-                    continue
 
-                pair_sum = nums[j] + nums[k]
-                target = -nums[i]
+                    while j < k and nums[j] == nums[j - 1]:
+                        j += 1
 
-                if target > pair_sum:
+                    while j < k and nums[k] == nums[k + 1]:
+                        k -= 1
+
+                elif total < 0:
                     j += 1
-
-                elif target < pair_sum:
-                    k -= 1
 
                 else:
-                    triplet = sorted([nums[i], nums[j], nums[k]])
-                    ans.add(tuple(triplet))
-
-                    j += 1
                     k -= 1
 
-        return [list(t) for t in ans]
+        return ans
         
