@@ -5,8 +5,6 @@ class Solution:
         while j<len(nums):
             if nums[j]!=0:
                 nums[i],nums[j]=nums[j],nums[i]
-                j+=1
                 i+=1
-            else:
-                j+=1
+            j+=1
         
