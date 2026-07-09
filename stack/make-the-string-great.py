@@ -7,6 +7,8 @@ class Solution:
                     stack.pop()
                 else:
                     stack.append(ch)
+            else:
+                stack.append(ch)
         ans = ""
         for ch in stack:
             ans = ans+ch
