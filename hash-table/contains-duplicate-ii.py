@@ -1,15 +1,16 @@
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        dict={}
-        lists = []
+        dicts={}
         for i in range(len(nums)):
-            if nums[i] not in dict:
-                dict[nums[i]]=[]
-            dict[nums[i]].append(i)  
-        for num in dict:
-            if len(dict[num])>=2:
-                if dict[num][-1] - dict[num][-2]<=k:
-                    return True
+            if nums[i] not in dicts:
+                dicts[nums[i]]=[]
+            dicts[nums[i]].append(i)  
+        for num in nums:
+            if len(dicts[num])>=2:
+                    if dicts[num][-1] - dicts[num][-2]<=k:
+                        return True
+                    else:
+                        dicts[num].pop()
         return False
 
         
