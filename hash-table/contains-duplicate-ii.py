@@ -7,8 +7,9 @@ class Solution:
                 dict[nums[i]]=[]
             dict[nums[i]].append(i)  
         for num in dict:
-            if dict[num][-1] - dict[num][-2]<=k:
-                return True
+            if len(dict[num])>=2:
+                if dict[num][-1] - dict[num][-2]<=k:
+                    return True
         return False
 
         
