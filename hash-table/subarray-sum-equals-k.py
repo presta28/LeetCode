@@ -15,6 +15,6 @@ class Solution:
                 sum= sum+nums[i]
                 if sum==k:
                     lists.append(nums[i])
-                dicts[k].append(lists)
+            dicts[k].append(lists)
         return len(dicts[k])
         
