@@ -22,10 +22,11 @@ class Solution:
         slow = head
         current = head
         fast=head
-        while current is not None:
+        while fast is not None and fast.next is not None:
             if fast.next==None or fast.next.next==None:
                 return False
-            if slow==fast:
-                return True
             slow=slow.next
             fast = fast.next.next
+            if slow==fast:
+                return True
+            
