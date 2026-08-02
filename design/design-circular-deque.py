@@ -27,7 +27,7 @@ class MyCircularDeque:
             self.front=0
             self.rear=-1
             self.size=0
-            return 
+            return True
         self.front=(self.front+1)%self.capacity
         self.size-=1
         return True
@@ -37,6 +37,7 @@ class MyCircularDeque:
             self.front=0
             self.rear=-1
             self.size=0
+            return True
         self.rear=(self.front-1+self.capacity)%self.capacity
         self.size-=1
         return True
