@@ -11,7 +11,7 @@ class Solution:
             nonlocal count
             if node==None:
                 return
-            if node.left!=None:
+            if node.left != None and node.left.left==None and node.left.right==None:
                 count+=node.left.val
             leftsum(node.left)
             leftsum(node.right)
