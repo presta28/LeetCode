@@ -9,9 +9,9 @@ class Solution:
         root = TreeNode(0)
         def Tree(array:List[int]):
             nonlocal preorder
-            target= preorder[0]
             if len(array)==0:
                 return None
+            target= preorder[0]
             count=0
             for i in range(len(array)):
                 if array[i]==target:
