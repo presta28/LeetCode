@@ -9,9 +9,9 @@ class Solution:
         def valid(node:Optional[TreeNode]):
             if node==None:
                 return True
-            if node.left!=None and node.val<node.left.val:
+            if node.left!=None and node.val<=node.left.val:
                 return False
-            if node.right!=None and node.val>node.right.val:
+            if node.right!=None and node.val>=node.right.val:
                 return False
             left=valid(node.left)
             right=valid(node.right)
