@@ -18,7 +18,7 @@ class Solution:
                 min_diff = diff
             getmin(node.right,node.val)
             return 
-        getmin(root,0)
+        getmin(root,float('inf'))
         return min_diff
 
         
