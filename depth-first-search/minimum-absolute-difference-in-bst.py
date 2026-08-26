@@ -6,19 +6,34 @@
 #         self.right = right
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        min_diff=float('inf')
-        def getmin(node:Optional[TreeNode],upper:int):
-            nonlocal min_diff 
-            if node==None:
-                return 
-            getmin(node.left,node.val)
-            first = node.val
-            diff = abs(first-upper)
-            if diff <min_diff:
-                min_diff = diff
-            getmin(node.right,node.val)
-            return 
-        getmin(root,float('inf'))
-        return min_diff
+
+        minimum = float("inf")
+        previous = None
+
+        def getmin(node):
+            nonlocal minimum, previous
+
+            if node == None:
+                return
+
+            # Left subtree
+            getmin(node.left)
+
+            # Current node
+            if previous != None:
+                diff = node.val - previous
+
+                if diff < minimum:
+                    minimum = diff
+
+            # Current node ab previous ban jayega
+            previous = node.val
+
+            # Right subtree
+            getmin(node.right)
+
+        getmin(root)
+
+        return minimum
 
         
