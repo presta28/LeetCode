@@ -20,13 +20,17 @@ class Solution:
             find(node.right)
             return
         find(root)
+        previous=-1
         for key ,value in dictt.items():
             if len(listt)==0:
                 listt.append(key)
+                previous=value
             else:
-                if value>listt[-1]:
+                if value>previous:
                     listt.pop()
                     listt.append(key)
-                elif value==listt[-1]:
+                    previous=value
+                elif value==previous:
                     listt.append(key)
+                    previous=value
         return listt
