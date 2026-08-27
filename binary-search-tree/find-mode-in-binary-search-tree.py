@@ -20,17 +20,12 @@ class Solution:
             find(node.right)
             return
         find(root)
-        previous=-1
-        for key ,value in dictt.items():
-            if len(listt)==0:
+        max_freq=0
+        for key, value in dictt.items():
+            if value > max_freq:
+                listt = [key]
+                max_freq = value
+
+            elif value == max_freq:
                 listt.append(key)
-                previous=value
-            else:
-                if value>previous:
-                    listt.pop()
-                    listt.append(key)
-                    previous=value
-                elif value==previous:
-                    listt.append(key)
-                    previous=value
         return listt
