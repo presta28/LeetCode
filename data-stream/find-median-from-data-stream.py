@@ -8,16 +8,16 @@ class MedianFinder:
     def heapify_up_max(self,i:int)->None:
         while i>0:
             parent = (i-1)//2
-            if self.heap1[parent]<self.heap[i]:
+            if self.heap1[parent]<self.heap1[i]:
                 break
             temp = self.heap1[parent]
-            self.heap[parent] = self.heap1[i]
+            self.heap1[parent] = self.heap1[i]
             self.heap1[i] = temp
             i = parent
     def heapify_up_min(self,i:int)->None:
         while i>0:
             parent = (i-1)//2
-            if self.heap1[parent]>self.heap2[i]:
+            if self.heap2[parent]>self.heap2[i]:
                 break
             temp = self.heap2[parent]
             self.heap2[parent] = self.heap2[i]
